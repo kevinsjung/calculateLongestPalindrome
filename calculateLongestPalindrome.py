@@ -17,20 +17,25 @@ def computeLongestPalindromeLength(text):
         return len(text)
     else:
 
+        # Make table of length len(text) by len(text)
         palindrome_length = [[0 for i in range(len(text))] for j in range(len(text))]
 
+        # Initialize the values of the table
         for i in range(len(text)):
             palindrome_length[i][i] = 1
             i += 1
 
+        # Traverse table
         for sl in xrange(2, len(text) + 1): #substring length, want to test strings from length 2 to the whole word
             for i in xrange(0, len(text) + 1 - sl): # starting index to fit length of substring
                 j = i + sl - 1  # last character in substring
                 if text[i] == text[j]:
                     palindrome_length[i][j] = palindrome_length[i+1][j-1] + 2
                 else:
+                    # the maximum palindrom length is the largest between the left or bottom
                     palindrome_length[i][j] = max(palindrome_length[i][j-1], palindrome_length[i+1][j])
 
+        # the top right corner will have the max length value
         return palindrome_length[0][len(text)-1]
 
 # Sample test
