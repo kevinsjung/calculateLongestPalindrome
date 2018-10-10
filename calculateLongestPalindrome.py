@@ -1,4 +1,4 @@
-def computeLongestPalindromeLength(text):
+def calculateLongestPalindrome(text):
     """
     Delete letters from the input text to find the longest palindrome achievable.
     A palindrome is a string that is the same read forwards and backwards (ex: 'abba').
@@ -39,4 +39,4 @@ def computeLongestPalindromeLength(text):
         return palindrome_length[0][len(text)-1]
 
 # Sample test
-print computeLongestPalindromeLength('What is the longest palindrome length?')
+print calculateLongestPalindrome('What is the longest palindrome length?')
